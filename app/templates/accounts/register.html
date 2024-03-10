@@ -1,0 +1,146 @@
+{% extends "layouts/base-fullscreen.html" %} {% block title %} Register {%
+endblock %} {% block stylesheets %}{% endblock stylesheets %} {% block content
+%}
+<section>
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center min-vh-100">
+      <div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+        <div class="card shadow zindex-100 mb-0">
+          <div class="card-body px-md-5 py-5">
+            <h1 class="mb-3 text-center">Register</h1>
+            <p class="mb-5 text-center">
+              <small
+                >Have an account?
+                <a
+                  class="font-weight-bold"
+                  href="{{ url_for('login') }} "
+                  >Login</a
+                ></small
+              >
+            </p>
+            <form
+              action="{{ url_for('register') }}"
+              method="post"
+            >
+              <div class="form-grop mb-0">
+                <label class="form-label">Username</label>
+                <div class="input-group mb-3">
+                  <span
+                    class="input-group-text"
+                    id="basic-addon1"
+                    ><i class="bi bi-person"></i>
+                  </span>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+
+                <label class="form-label">Password</label>
+                <div class="input-group mb-3">
+                  <span
+                    class="input-group-text"
+                    id="basic-addon1"
+                    ><i class="bi bi-key"></i>
+                  </span>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="Password"
+                    aria-label="Password"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+
+                <label class="form-label">Email</label>
+                <div class="input-group mb-3">
+                  <span
+                    class="input-group-text"
+                    id="basic-addon1"
+                    ><i class="bi bi-envelope"></i>
+                  </span>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="name@example.com"
+                    aria-label="Email"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+
+                <label class="form-label">First Name</label>
+                <div class="input-group mb-3">
+                  <span
+                    class="input-group-text"
+                    id="basic-addon1"
+                    ><i class="bi bi-person-vcard"></i>
+                  </span>
+                  <input
+                    type="text"
+                    name="first_name"
+                    id="first_name"
+                    class="form-control"
+                    placeholder="First Name"
+                    aria-label="First Name"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+
+                <label class="form-label">Last Name</label>
+                <div class="input-group mb-3">
+                  <span
+                    class="input-group-text"
+                    id="basic-addon1"
+                    ><i class="bi bi-person-vcard"></i>
+                  </span>
+                  <input
+                    type="text"
+                    name="last_name"
+                    id="last_name"
+                    class="form-control"
+                    placeholder="Last Name"
+                    aria-label="Last Name"
+                    aria-describedby="basic-addon1"
+                    required
+                  />
+                </div>
+
+                <div class="msg">{{ msg }}</div>
+                <div class="mt-4">
+                  <button
+                    type="submit"
+                    name="register"
+                    value="Register"
+                    class="btn btn-block btn-primary"
+                  >
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% if registered %}
+<script>
+  window.onload = function () {
+    alert('Registration successful! You can now log in.')
+  }
+</script>
+{% endif %} {% endblock content %}

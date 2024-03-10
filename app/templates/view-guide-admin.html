@@ -1,0 +1,48 @@
+{% extends "layouts/base-admin-dashboard.html" %} {% block title %} Dashboard {%
+endblock %} {% block content %}
+<div class="settings-container m-3">
+  <div class="card mb-4 p-3">
+    <h5 class="card-header">Guide List</h5>
+    <div class="table-responsive">
+      <table class="table table-striped table-borderless table-hover p-4">
+        <thead class="table-primary">
+          <tr>
+            <th>Ocean Id</th>
+            <th>Ocean Type</th>
+            <th>Present In NZ</th>
+            <th>Common Name</th>
+            <th>Scientific Name</th>
+            <th>Characteristics</th>
+            <th>Description</th>
+            <th>Threats</th>
+            <th>Location</th>
+            <th>Images</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for guide in guides %}
+          <tr>
+            <td>{{ guide[0] }}</td>
+            <td>{{ guide[1] }}</td>
+            <td>{{ guide[2] }}</td>
+            <td>{{ guide[3] }}</td>
+            <td>{{ guide[4] }}</td>
+            <td>{{ guide[5] }}</td>
+            <td>{{ guide[6] }}</td>
+            <td>{{ guide[7] }}</td>
+            <td>{{ guide[8] }}</td>
+            <td>
+              <img
+                src="{{ url_for('static', filename=guide[9].replace('app/static/', '')) }}"
+                class="img-fluid"
+              />
+            </td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

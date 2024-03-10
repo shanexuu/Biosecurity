@@ -1,0 +1,145 @@
+{% extends "layouts/base-admin-dashboard.html" %} {% block title %} Dashboard {%
+endblock %} {% block content %}
+<div class="settings-container m-3">
+  <div class="card mb-3 p-4">
+    <div class="card-header">
+      <h5 class="card-tile mb-0">Add Guide</h5>
+    </div>
+    <form
+      method="POST"
+      href="{{ url_for('admin_add_guide') }}"
+      enctype="multipart/form-data"
+    >
+      <div class="row mb-3">
+        <div class="col">
+          <label
+            class="form-label"
+            for="oecan-type"
+            >Oecan Type</label
+          >
+          <div class="position-relative">
+            <select
+              id="ocean_type"
+              class="select2 form-select select2-hidden-accessible"
+              name="ocean_type"
+            >
+              <option value="">Ocean Type</option>
+              <option value="pest">Pest</option>
+              <option value="disease">Disease</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <label
+            class="form-label"
+            for="Present-in-NZ"
+            >Present in NZ</label
+          >
+          <div class="position-relative">
+            <select
+              id="present_in_nz"
+              class="select2 form-select select2-hidden-accessible"
+              name="present_in_nz"
+            >
+              <option value="">Present in NZ</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label
+            class="form-label"
+            for="common_name"
+            >Common Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="common_name"
+            placeholder="Common Name"
+            name="common_name"
+            aria-label="Common Name"
+          />
+        </div>
+        <div class="col">
+          <label
+            class="form-label"
+            for="scientific_name"
+            >Scientific Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="scientific_name"
+            placeholder="Scientific Name"
+            name="scientific_name"
+          />
+        </div>
+      </div>
+      <div>
+        <label class="form-label">Characteristics</label>
+        <textarea
+          class="form-control"
+          aria-label="characteristics"
+          id="characteristics"
+          name="characteristics"
+        ></textarea>
+      </div>
+
+      <div>
+        <label class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          aria-label="description"
+          id="description"
+          name="description"
+        ></textarea>
+      </div>
+
+      <div>
+        <label class="form-label">Threats</label>
+        <textarea
+          class="form-control"
+          aria-label="threats"
+          id="threats"
+          name="threats"
+        ></textarea>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Location</label>
+        <textarea
+          class="form-control"
+          aria-label="location"
+          id="location"
+          name="location"
+        ></textarea>
+      </div>
+
+      <div>
+        <input
+          type="file"
+          id="Images"
+          name="images"
+          accept="image/*"
+          multiple
+        />
+      </div>
+
+      <div class="msg mb-4">{{ msg }}</div>
+
+      <div class="col-12 mt-3">
+        <input
+          type="submit"
+          value="Add a New Guide"
+          class="btn"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

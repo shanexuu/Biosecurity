@@ -1,0 +1,78 @@
+{% extends "layouts/base-dashboard.html" %} {% block title %} Dashboard {%
+endblock %} {% block content %}
+<div class="m-3">
+  <div class="d-flex flex-column">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="user-profile-header-banner">
+          <img
+            src="../../static/assets/img/banner.jpg"
+            alt="Banner image"
+            class="rounded-top"
+          />
+        </div>
+        <div
+          class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4"
+        >
+          <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
+            <img
+              src="../static/assets/img/avatar.jpg"
+              alt="mdo"
+              class="d-block ms-0 ms-sm-4 rounded user-profile-img"
+            />
+          </div>
+          <div class="flex-grow-1 mt-3 mt-sm-5">
+            <div
+              class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4"
+            >
+              <div class="user-profile-info">
+                <h4>{{ user[1] }}</h4>
+                <ul
+                  class="list-inline mb-0 d-flex align-items-center flex-wrap justify-content-sm-start justify-content-center gap-2"
+                >
+                  <li class="list-inline-item fw-medium">
+                    <i class="bx bx-calendar-alt"></i> Joined {{ user[10] }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4 p-5">
+        <small class="text-muted text-uppercase">About</small>
+        <ul class="list-unstyled mb-4 mt-3">
+          <li class="d-flex align-items-center mb-3">
+            <i class="bx bx-user"></i
+            ><span class="fw-medium mx-2">Full Name:</span>
+            <span>{{ user[4] }} {{ user[5] }}</span>
+          </li>
+          <li class="d-flex align-items-center mb-3">
+            <i class="bx bx-check"></i
+            ><span class="fw-medium mx-2">Status:</span>
+            <span>{{ user[8] }}</span>
+          </li>
+          <li class="d-flex align-items-center mb-3">
+            <i class="bx bx-star"></i><span class="fw-medium mx-2">Role:</span>
+            <span>{{ user[9] }}</span>
+          </li>
+        </ul>
+        <small class="text-muted text-uppercase">Contacts</small>
+        <ul class="list-unstyled mb-4 mt-3">
+          <li class="d-flex align-items-center mb-3">
+            <i class="bx bx-envelope"></i
+            ><span class="fw-medium mx-2">Email:</span>
+            <span>{{ user[3] }}</span>
+          </li>
+          <li class="d-flex align-items-center mb-3">
+            <i class="bx bx-phone"></i
+            ><span class="fw-medium mx-2">Contact:</span>
+            <span>{{ user[6] }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

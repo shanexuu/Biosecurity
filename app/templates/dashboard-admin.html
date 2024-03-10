@@ -1,0 +1,50 @@
+{% extends "layouts/base-admin-dashboard.html" %} {% block title %} Dashboard {%
+endblock %} {% block content %}
+<div class="dashboard-container">
+  <div class="d-flex m-4">
+    <div class="card col-6 p-4 me-4">
+      <p class="mb-4">Hi, {{ user[1] }}.</p>
+      <p>Welcome back. 🎉</p>
+    </div>
+
+    <div class="card col-6 p-4">
+      <img
+        src="../static/assets/img/avatar.jpg"
+        alt="mdo"
+        class="d-block ms-0 ms-sm-4 rounded user-profile-img"
+      />
+
+      <small class="text-muted text-uppercase">About</small>
+      <ul class="list-unstyled mb-4 mt-3">
+        <li class="d-flex align-items-center mb-3">
+          <i class="bx bx-user"></i
+          ><span class="fw-medium mx-2">Full Name:</span>
+          <span>{{ user[4] }} {{ user[5] }}</span>
+        </li>
+        <li class="d-flex align-items-center mb-3">
+          <i class="bx bx-check"></i><span class="fw-medium mx-2">Status:</span>
+          <span>{{ user[8] }}</span>
+        </li>
+        <li class="d-flex align-items-center mb-3">
+          <i class="bx bx-star"></i><span class="fw-medium mx-2">Role:</span>
+          <span>{{ user[9] }}</span>
+        </li>
+      </ul>
+      <small class="text-muted text-uppercase">Contacts</small>
+      <ul class="list-unstyled mb-4 mt-3">
+        <li class="d-flex align-items-center mb-3">
+          <i class="bx bx-envelope"></i
+          ><span class="fw-medium mx-2">Email:</span>
+          <span>{{ user[3] }}</span>
+        </li>
+        <li class="d-flex align-items-center mb-3">
+          <i class="bx bx-phone"></i
+          ><span class="fw-medium mx-2">Contact:</span>
+          <span>{{ user[6] }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

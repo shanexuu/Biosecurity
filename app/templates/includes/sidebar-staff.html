@@ -1,0 +1,109 @@
+<div class="sidebar layout-menu menu-vertical menu d-flex flex-nowrap">
+  <div class="d-flex flex-column flex-shrink-0">
+    <a
+      href="/"
+      class="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none"
+    >
+      <span class="fs-5 fw-bolder pt-4 ps-4 pe-4">Marine Biosecurity</span>
+    </a>
+    <div></div>
+    <ul class="nav nav-pills flex-column mb-auto p-3">
+      <li class="nav-item">
+        <a
+          href="{{ url_for('staff_dashboard') }}"
+          class="nav-link text-white"
+          aria-current="page"
+        >
+          <i class="bi bi-speedometer2"></i>
+          Dashboard
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="{{ url_for('staff_profile') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-person-circle"></i>
+
+          Profile
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="{{ url_for('staff_settings') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-gear"></i>
+          Settings
+        </a>
+      </li>
+      <hr />
+      <li class="nav-item">
+        <a
+          href="{{ url_for('staff_view_mariners') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-person-check"></i>
+          View Mariners
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="{{ url_for('staff_view_guide') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-book"></i>
+          View Guide
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="{{ url_for('staff_add_guide') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-file-earmark-plus"></i>
+          Add Guide
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="{{ url_for('staff_update_guide') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-arrow-clockwise"></i>
+          Update Guide
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="{{ url_for(staff_delete_guide') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-trash"></i>
+          Delete Guide
+        </a>
+      </li>
+      <hr />
+
+      <li class="nav-item">
+        <a
+          href="{{ url_for('homepage') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-house"></i>
+          Homepage
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="{{ url_for('logout') }}"
+          class="nav-link text-white"
+        >
+          <i class="bi bi-box-arrow-right"></i>
+          Signout
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

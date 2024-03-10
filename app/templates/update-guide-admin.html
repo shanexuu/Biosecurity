@@ -1,0 +1,98 @@
+{% extends "layouts/base-admin-dashboard.html" %} {% block title %} Dashboard {%
+endblock %} {% block content %}
+<div class="settings-container m-3">
+  <div class="card mb-4 p-3">
+    <h5 class="card-header">Update Guide</h5>
+
+    <form
+      method="POST"
+      class="row g-3 needs-validation"
+      action="/admin/update-guide"
+    >
+      <div class="col-md-4">
+        <select
+          name="common_name"
+          class="form-select"
+          id="common_name"
+          required
+        >
+          <option selected>Please Select the Pest or Disease Name</option>
+          {% for guide in guides %}
+          <option value="{{ guide[0] }}">{{ guide[0] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4">
+        <input
+          name="ocean_type"
+          type="text"
+          class="form-control col-md-3"
+          placeholder="Ocean Type"
+          aria-label="ocean_type"
+        />
+      </div>
+      <div class="col-md-4">
+        <input
+          name="present_in_nz"
+          type="text"
+          class="form-control col-md-3"
+          placeholder="Present in nz"
+        />
+      </div>
+      <div class="col-md-4">
+        <input
+          name="common_name"
+          type="text"
+          class="form-control col-md-3"
+          placeholder="Common Name"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <input
+          name="scientific_name"
+          type="text"
+          class="form-control col-md-3"
+          placeholder="Scientific Name"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <input
+          name="characteristics"
+          type="text"
+          class="form-control col-md-3"
+          placeholder="Characteristics"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <input
+          name="description"
+          type="text"
+          class="form-control col-md-3"
+          placeholder="description"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <input
+          name="threats"
+          type="text"
+          class="form-control col-md-3"
+          placeholder="threats"
+        />
+      </div>
+
+      <div class="col-12">
+        <input
+          type="submit"
+          value="Update"
+          class="btn btn-primary"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

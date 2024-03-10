@@ -1,0 +1,96 @@
+<header class="p-4 navigation">
+  <div class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <a
+        href="/"
+        class="navbar-brand d-flex align-items-center mb-2 mb-lg-0 link-light fs-2 text-white"
+      >
+        <span class="logo-color">Marine</span>&nbspBiosecurity
+      </a>
+
+      <ul
+        class="nav navbar col-12 col-lg-auto me-lg-auto mb-2 ms-5 justify-content-center mb-md-0"
+      >
+        <li>
+          <a
+            href="{{ url_for('homepage') }}"
+            class="nav-link px-3 link-light text-white"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('pests') }}"
+            class="nav-link px-3 link-light text-white"
+            >Ocean Pests</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('diseases') }}"
+            class="nav-link px-3 link-light text-white"
+            >Ocean Diseases</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('sources') }}"
+            class="nav-link px-3 link-light text-white"
+            >Sources</a
+          >
+        </li>
+      </ul>
+
+      <div class="dropdown text-end">
+        <a
+          href="#"
+          class="d-block link-light text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="../../static/assets/img/avatar.jpg"
+            alt="mdo"
+            width="32px"
+            height="32px"
+            class="rounded-circle"
+          />
+        </a>
+        <ul class="dropdown-menu text-small">
+          <li>
+            <a
+              class="dropdown-item"
+              href="{{ url_for('dashboard') }}"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="{{ url_for('profile') }}"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="{{ url_for('settings') }}"
+              >Settings</a
+            >
+          </li>
+
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="{{ url_for('logout') }}"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
