@@ -3,7 +3,7 @@ endblock %} {% block content %}
 <div class="settings-container m-3">
   <div class="card mb-3 p-4">
     <div class="card-header">
-      <h5 class="card-tile mb-0">Guide Infomation</h5>
+      <h5 class="card-tile mb-0">Add Guide</h5>
     </div>
     <form
       method="POST"
@@ -21,9 +21,6 @@ endblock %} {% block content %}
             <select
               id="ocean_type"
               class="select2 form-select select2-hidden-accessible"
-              data-select2-id="status"
-              tabindex="-1"
-              aria-hidden="true"
               name="ocean_type"
             >
               <option value="">Ocean Type</option>
@@ -42,14 +39,11 @@ endblock %} {% block content %}
             <select
               id="present_in_nz"
               class="select2 form-select select2-hidden-accessible"
-              data-select2-id="present_in_nz"
-              tabindex="-1"
-              aria-hidden="true"
               name="present_in_nz"
             >
               <option value="">Present in NZ</option>
-              <option value="1">Yes</option>
-              <option value="0">No</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
             </select>
           </div>
         </div>
@@ -82,7 +76,6 @@ endblock %} {% block content %}
             id="scientific_name"
             placeholder="Scientific Name"
             name="scientific_name"
-            aria-label="Scientific Name"
           />
         </div>
       </div>
@@ -124,6 +117,16 @@ endblock %} {% block content %}
           id="location"
           name="location"
         ></textarea>
+      </div>
+
+      <div>
+        <input
+          type="file"
+          id="Images"
+          name="images"
+          accept="image/*"
+          multiple
+        />
       </div>
 
       <div class="msg mb-4">{{ msg }}</div>

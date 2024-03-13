@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %} {% block title %}Pest Details{% endblock %} {%
+block content %}
+<div class="container mt-5">
+  {% for guide in guide_details %}
+  <h2>{{ guide[3]}}</h2>
+  <div>
+    <img
+      src="{{ url_for('static', filename=guide[9].replace('app/static/', '')) }}"
+      class="img-fluid mb-4"
+    />
+    <p>Ocean Type: {{ guide[1] }}</p>
+    <p>Present in NZ: {{ guide[2] }}</p>
+    <p>Scientific Name: {{ guide[4] }}</p>
+    <p>Characteristics: {{ guide[5] }}</p>
+    <p>Description: {{ guide[6] }}</p>
+    <p>Threats: {{ guide[7] }}</p>
+    <p>Location: {{guide[8] }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

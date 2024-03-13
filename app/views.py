@@ -208,13 +208,72 @@ def admin():
         return redirect(url_for('login')) 
 
 
-@app.route('/oceanpests')
+@app.route('/oceanpests', methods=["GET"])
 def pests():
-    return render_template('pests.html')
+    cursor = getCursor()
+    
+       
+    cursor.execute("""SELECT o.ocean_id, o.common_name, o.present_in_nz, ol.image_url
+    FROM ocean o
+    INNER JOIN oceanImages ol ON ol.ocean_id = o.ocean_id
+    WHERE o.ocean_type = 'pest'
+                   
+    """)
+    guides = cursor.fetchall()
+    
 
-@app.route('/oceandiseases')
+    return render_template('pests.html', guides=guides)
+
+@app.route('/oceanpests/details', methods=["GET"])
+def oceanpests_details():
+    ocean_id = request.args.get('ocean_id')
+    
+    cursor =getCursor()
+
+    cursor.execute("""SELECT o.*, ol.image_url FROM ocean o
+    INNER JOIN oceanImages ol ON ol.ocean_id = o.ocean_id
+    WHERE o.ocean_type = 'pest' AND o.ocean_id = %s""", (ocean_id,))
+    guide_details = cursor.fetchall()
+    
+
+    if not guide_details:
+        return "Pest not found", 404
+
+    return render_template('ocean-details.html', guide_details=guide_details)
+
+
+@app.route('/oceandiseases', methods=["GET"])
 def diseases():
-    return render_template('diseases.html')
+    cursor = getCursor()
+    
+       
+    cursor.execute("""SELECT o.ocean_id, o.common_name, o.present_in_nz, ol.image_url
+    FROM ocean o
+    INNER JOIN oceanImages ol ON ol.ocean_id = o.ocean_id
+    WHERE o.ocean_type = 'disease'
+                   
+    """)
+    guides = cursor.fetchall()
+    
+
+    return render_template('diseases.html', guides=guides)
+
+@app.route('/oceandiseases/details', methods=["GET"])
+def oceandiseases_details():
+    ocean_id = request.args.get('ocean_id')
+    
+    cursor =getCursor()
+
+    cursor.execute("""SELECT o.*, ol.image_url FROM ocean o
+    INNER JOIN oceanImages ol ON ol.ocean_id = o.ocean_id
+    WHERE o.ocean_type = 'disease' AND o.ocean_id = %s""", (ocean_id,))
+    guide_details = cursor.fetchall()
+    
+
+    if not guide_details:
+        return "Disease not found", 404
+
+    return render_template('ocean-details.html', guide_details=guide_details)
 
 @app.route('/sources')
 def sources():

@@ -2,195 +2,165 @@
 endblock %} {% block content %}
 <div class="settings-container m-3">
   <div class="card mb-4 p-3">
-    <h5 class="card-header">Profile Details</h5>
-    <!-- Account -->
-
-    <div class="d-flex align-items-start align-items-sm-center gap-4 mb-4">
-      <img
-        src="../static/assets/img/avatar.jpg"
-        alt="user-avatar"
-        class="d-block rounded"
-        height="100"
-        width="100"
-        id="uploadedAvatar"
-      />
-      <div class="button-wrapper">
-        <label
-          for="upload"
-          class="btn mb-2"
-          tabindex="0"
-        >
-          <span class="d-none d-sm-block">Upload new photo</span>
-          <i class="bx bx-upload d-block d-sm-none"></i>
-          <input
-            type="file"
-            id="upload"
-            class="account-file-input"
-            hidden=""
-            accept="image/png, image/jpeg"
-          />
-        </label>
-
-        <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-      </div>
+    <div class="card-header">
+      <h5 class="card-tile mb-0">Add Staff</h5>
     </div>
-    <hr class="my-0 mb-4" />
-
     <form
-      id="formAccountSettings"
-      method="GET"
-      onsubmit="return false"
-      class="fv-plugins-bootstrap5 fv-plugins-framework"
-      novalidate="novalidate"
+      method="POST"
+      href="{{ url_for('admin_add_staff') }}"
     >
-      <div class="row">
-        <div class="mb-3 col-md-6 fv-plugins-icon-container">
+      <div class="row mb-3">
+        <div class="col-6 mb-4">
           <label
-            for="firstName"
             class="form-label"
-            >First Name</label
+            for="username"
+            >Username</label
           >
           <input
-            class="form-control"
             type="text"
-            id="firstName"
-            name="firstName"
-            value="John"
-            autofocus=""
+            class="form-control"
+            id="username"
+            placeholder="username"
+            name="username"
           />
-          <div
-            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
-          ></div>
         </div>
-        <div class="mb-3 col-md-6 fv-plugins-icon-container">
+
+        <div class="col-6 mb-4">
           <label
-            for="lastName"
             class="form-label"
-            >Last Name</label
-          >
-          <input
-            class="form-control"
-            type="text"
-            name="lastName"
-            id="lastName"
-            value="Doe"
-          />
-          <div
-            class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
-          ></div>
-        </div>
-        <div class="mb-3 col-md-6">
-          <label
-            for="email"
-            class="form-label"
-            >E-mail</label
-          >
-          <input
-            class="form-control"
-            type="text"
-            id="email"
-            name="email"
-            value="john.doe@example.com"
-            placeholder="john.doe@example.com"
-          />
-        </div>
-        <div class="mb-3 col-md-6">
-          <label
             for="password"
-            class="form-label"
-            >Change Password</label
+            >Password</label
           >
           <input
             type="password"
             class="form-control"
             id="password"
             name="password"
-            value="password"
           />
         </div>
-        <div class="mb-3 col-md-6">
+
+        <div class="col-6 mb-4">
           <label
             class="form-label"
-            for="phoneNumber"
-            >Phone Number</label
+            for="email"
+            >Email</label
           >
-          <div class="input-group input-group-merge">
-            <span class="input-group-text">NZ (+64)</span>
-            <input
-              type="text"
-              id="phoneNumber"
-              name="phoneNumber"
-              class="form-control"
-              placeholder="202 555 0111"
-            />
-          </div>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="example@example.com"
+            name="email"
+          />
         </div>
-        <div class="mb-3 col-md-6">
+
+        <div class="col-6 mb-4">
           <label
-            for="address"
             class="form-label"
-            >Address</label
+            for="first_name"
+            >First Name</label
           >
           <input
             type="text"
             class="form-control"
-            id="address"
-            name="address"
-            placeholder="Address"
+            id="first_name"
+            name="first_name"
+            placeholder="First Name"
           />
         </div>
-        <div class="mb-3 col-md-6">
+        <div class="col-6 mb-4">
           <label
-            for="state"
             class="form-label"
-            >Date Joined</label
+            for="last_name"
+            >Last Name</label
           >
           <input
+            type="text"
             class="form-control"
-            type="date"
-            id="date"
-            name="date"
+            id="last_name"
+            name="last_name"
+            placeholder="Last Name"
           />
         </div>
-        <div
-          class="mb-3 col-md-6"
-          data-select2-id="52"
-        >
+        <div class="col-6 mb-4">
           <label
-            for="status"
             class="form-label"
-            >Status</label
+            for="staff_number"
+            >Staff Number</label
           >
-          <div class="position-relative">
-            <select
-              id="status"
-              class="select2 form-select select2-hidden-accessible"
-              data-select2-id="status"
-              tabindex="-1"
-              aria-hidden="true"
-            >
-              <option value="">Change Status</option>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-            </select>
-          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="staff_number"
+            placeholder="Staff_1"
+            name="staff_number"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label
+            class="form-label"
+            for="hire_date"
+            >Hire Date</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="hire_date"
+            name="hire_date"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label
+            class="form-label"
+            for="position"
+            >Position</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="position"
+            name="position"
+          />
+        </div>
+
+        <div class="col-6 mb-4">
+          <label
+            class="form-label"
+            for="department"
+            >Department</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="department"
+            name="department"
+          />
+        </div>
+
+        <div class="col-6 mb-4">
+          <label
+            class="form-label"
+            for="work_phone_number"
+            >Work Phone Nunber</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="work_phone_number"
+            name="work_phone_number"
+          />
         </div>
       </div>
-      <div class="mt-2">
-        <button
+
+      <div class="msg mb-4">{{ msg }}</div>
+
+      <div class="col-12 mt-3">
+        <input
           type="submit"
-          class="btn btn-primary me-2"
-        >
-          Save changes
-        </button>
-        <button
-          type="reset"
-          class="btn btn-label-secondary"
-        >
-          Cancel
-        </button>
+          value="Add a New Staff"
+          class="btn"
+        />
       </div>
-      <input type="hidden" />
     </form>
   </div>
 </div>

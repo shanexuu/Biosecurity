@@ -1,4 +1,37 @@
-{% extends "layouts/base.html" %} {% block title %} Sources {% endblock %} {%
+{% extends "layouts/base.html" %} {% block title %}Ocean Pests{% endblock %} {%
 block content %}
-<h1>Diseases</h1>
-{% endblock content %}
+<div class="container mt-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('homepage') }}">Home</a>
+      </li>
+      <li
+        class="breadcrumb-item active"
+        aria-current="page"
+      >
+        Ocean Diseases
+      </li>
+    </ol>
+  </nav>
+  <div class="row">
+    {% for guide in guides %}
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <a href="/oceandiseases/details?ocean_id={{ guide[0] }}"
+          ><img
+            src="{{ url_for('static', filename=guide[3].replace('app/static/', '')) }}"
+            class="object-fit-cover bd-placeholder-img card-img-top"
+            width="420"
+            height="350"
+        /></a>
+
+        <div class="card-body">
+          <h6 class="text-center">{{ guide[1] }}</h6>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

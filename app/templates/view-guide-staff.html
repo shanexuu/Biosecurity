@@ -31,8 +31,14 @@ endblock %} {% block content %}
             <td>{{ guide[6] }}</td>
             <td>{{ guide[7] }}</td>
             <td>{{ guide[8] }}</td>
-            <td>{{ guide[9] }}</td>
+            <td>
+              <img
+                src="{{ url_for('static', filename=guide[9].replace('app/static/', '')) }}"
+                class="img-fluid"
+              />
+            </td>
           </tr>
+
           {% endfor %}
         </tbody>
       </table>

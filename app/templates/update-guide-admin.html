@@ -7,42 +7,57 @@ endblock %} {% block content %}
     <form
       method="POST"
       class="row g-3 needs-validation"
-      action="/admin/update-guide"
+      href="{{ url_for('admin_update_guide') }}"
+      enctype="multipart/form-data"
     >
       <div class="col-md-4">
         <select
-          name="common_name"
+          name="ocean_id"
           class="form-select"
-          id="common_name"
+          id="ocean_id"
           required
         >
-          <option selected>Please Select the Pest or Disease Name</option>
+          <option selected>Please Select the Pest or Disease ID</option>
           {% for guide in guides %}
           <option value="{{ guide[0] }}">{{ guide[0] }}</option>
           {% endfor %}
         </select>
       </div>
       <div class="col-md-4">
-        <input
-          name="ocean_type"
-          type="text"
-          class="form-control col-md-3"
-          placeholder="Ocean Type"
-          aria-label="ocean_type"
-        />
+        <div class="col">
+          <div class="position-relative">
+            <select
+              id="ocean_type"
+              class="select2 form-select select2-hidden-accessible"
+              name="ocean_type"
+            >
+              <option value="">Ocean Type</option>
+              <option value="pest">Pest</option>
+              <option value="disease">Disease</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
-        <input
-          name="present_in_nz"
-          type="text"
-          class="form-control col-md-3"
-          placeholder="Present in nz"
-        />
+        <div class="col">
+          <div class="position-relative">
+            <select
+              id="present_in_nz"
+              class="select2 form-select select2-hidden-accessible"
+              name="present_in_nz"
+            >
+              <option value="">Present in NZ</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
         <input
           name="common_name"
           type="text"
+          id="common_name"
           class="form-control col-md-3"
           placeholder="Common Name"
         />
@@ -51,39 +66,52 @@ endblock %} {% block content %}
       <div class="col-md-4">
         <input
           name="scientific_name"
+          id="scientific_name"
           type="text"
           class="form-control col-md-3"
           placeholder="Scientific Name"
         />
       </div>
 
-      <div class="col-md-4">
-        <input
+      <div>
+        <label class="form-label">Characteristics</label>
+        <textarea
+          class="form-control"
+          aria-label="characteristics"
+          id="characteristics"
           name="characteristics"
-          type="text"
-          class="form-control col-md-3"
-          placeholder="Characteristics"
-        />
+        ></textarea>
       </div>
 
-      <div class="col-md-4">
-        <input
+      <div>
+        <label class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          aria-label="description"
+          id="description"
           name="description"
-          type="text"
-          class="form-control col-md-3"
-          placeholder="description"
-        />
+        ></textarea>
       </div>
 
-      <div class="col-md-4">
-        <input
+      <div>
+        <label class="form-label">Threats</label>
+        <textarea
+          class="form-control"
+          aria-label="threats"
+          id="threats"
           name="threats"
-          type="text"
-          class="form-control col-md-3"
-          placeholder="threats"
+        ></textarea>
+      </div>
+      <div>
+        <input
+          type="file"
+          id="Images"
+          name="images"
+          accept="image/*"
+          multiple
         />
       </div>
-
+      <div class="msg mb-4">{{ msg }}</div>
       <div class="col-12">
         <input
           type="submit"

@@ -58,6 +58,13 @@ body {
 .logo-color {
   color: var(--blue);
 }
+.bg {
+  width: 100vw;
+  height: auto;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
 .hero {
   width: 100vw;
